@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<div style="width:100%;height: 300px;border:1px solid #ccc">这是父窗口</div>
+	<div id="aa">
+		<iframe id="ifr" src="childFrame.html" style="height:300px;width: 100%;border:1px solid red" frameborder="0"></iframe>
+	</div>
+</body>
+<script>
+	var ifX=false,ifY=false;//iframe的绝对位置
+	window.onload=function(){
+	  var ifr=document.getElementById('ifr');
+	  ifX=ifr.offsetLeft;
+	  ifY=ifr.offsetTop;
+	  while(ifr=ifr.offsetParent){
+	    ifX += ifr.offsetLeft;
+	    ifY += ifr.offsetTop;
+	  }
+	}
+	// var time = 0 ;
+	document.onmousemove=function(e){
+	  e=e||event;
+	  consolelog(e.clientX,e.clientY)
+	}
+	function consolelog(x,y){
+		// console.log(time)
+		 console.log(x,y)
+	}
+</script>
+</html>

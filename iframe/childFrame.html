@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<div style="width:100%;height: 200px;border:1px solid #ccc">这是子窗口</div>
+
+</body>
+<script type="text/javascript">
+document.onmousemove=function(e){
+  	e=e||event;
+  	parent.time = 1 ;
+  	// console.log(parent.time)
+	parent.consolelog(e.clientX+parent.ifX,e.clientY+parent.ifY)
+}
+</script>
+</html>
