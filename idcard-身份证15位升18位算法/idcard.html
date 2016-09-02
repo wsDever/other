@@ -1,0 +1,14 @@
+﻿<html>
+<head>
+    <title>把15位身份证转成18</title>
+    <script src="idcard.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+
+<body onload="onload()">15位号码：
+    <input id="cardID" type="text" maxlength="15" onmouseout="checkCardID(this)" />
+    <br>18位号码：
+    <input id="cardID18" type="text" readonly="readonly" />
+    <input type="button" onclick="checkNewCardID();" value="提交" />
+</body>
+
+</html>
