@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+    <title>option</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<style type="text/css">
+	html {
+		background: #eee;
+		box-sizing: border-box;
+		overflow-y: scroll;
+	}
+	body {
+		font: 1em/1.6 "Varela Round", Arial, sans-serif;
+		color: #999;
+		font-weight: 400;
+		padding: 1em;
+		margin: 0 auto 10% auto;
+	}
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+	</style>	
+</head>
+
+<body>
+	<div class="dropp">
+  <div class="dropp-header">
+      <span class="dropp-header__title js-value">请选择你喜欢的水果</span>
+      <a href="#" class="dropp-header__btn js-dropp-action"><i class="icon"></i></a>
+  </div>
+  <div class="dropp-body">
+    <label for="optA">西 瓜
+      <input type="radio" id="optA" name="dropp" value="西 瓜">
+    </label>
+    <label for="optB">苹 果
+      <input type="radio" id="optB" name="dropp" value="苹 果">
+    </label>
+    <label for="optC">香 蕉
+      <input type="radio" id="optC" name="dropp" value="香 蕉">
+    </label>
+    <label for="optD">葡 萄
+      <input type="radio" id="optD" name="dropp" value="葡 萄">
+    </label>
+  </div>
+</div>
+</body>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+  // Default dropdown action to show/hide dropdown content
+  $('.js-dropp-action').click(function(e) {
+    e.preventDefault();
+    $(this).toggleClass('js-open');
+    $(this).parent().next('.dropp-body').toggleClass('js-open');
+  });
+  // Using as fake input select dropdown
+  $('label').click(function() {
+    $(this).addClass('js-open').siblings().removeClass('js-open');
+    $('.dropp-body,.js-dropp-action').removeClass('js-open');
+  });
+  // get the value of checked input radio and display as dropp title
+  $('input[name="dropp"]').change(function() {
+    var value = $("input[name='dropp']:checked").val();
+    $('.js-value').text(value);
+	alert("你选择的是："+value);
+  });
+});
+</script>
+</html>
